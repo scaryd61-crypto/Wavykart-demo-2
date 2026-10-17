@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wavy Kart | Little Riders, Big Dreams. – Jamnagar</title>
+<meta name="description" content="Wavy Kart, Jamnagar: miniature ride-on cars, bikes, jeeps and scooters for children.">
+<!-- FAVICON: add favicon.png (cropped from the ORIGINAL logo) next to this file, then uncomment: -->
+<!-- <link rel="icon" href="favicon.png"> -->
+<style>
+:root{--bg:#0a0a0a;--card:#141414;--line:#2a2418;--gold:#d4af37;--gold2:#f3d77a;--txt:#f4f1e8;--mut:#b5ad98}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--txt);font-family:Georgia,'Times New Roman',serif;line-height:1.6}
+h1,h2,h3,.brand{font-family:Georgia,serif;letter-spacing:.02em}
+p,input,button,a,.nav{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:auto;padding:0 18px}
+section{padding:64px 0}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);color:var(--gold2);margin-bottom:8px}
+.sub{color:var(--mut);margin-bottom:28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:30px;border:1px solid var(--gold);background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111;font-weight:700;cursor:pointer;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(212,175,55,.3)}
+.btn.ghost{background:transparent;color:var(--gold2)}
+.btn.wa{background:#1fa855;border-color:#1fa855;color:#fff}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(10,10,10,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-size:1.25rem;color:var(--gold2);font-weight:700}
+.logo{width:44px;height:44px;border-radius:50%;flex:none;object-fit:cover;border:1px dashed var(--gold);display:grid;place-items:center;font:700 .55rem system-ui;color:var(--gold);text-align:center;line-height:1.1}
+.nav{display:flex;gap:18px;margin-left:auto;font-size:.9rem}
+.nav a{color:var(--mut)}.nav a:hover{color:var(--gold2)}
+#menuBtn{display:none;margin-left:auto;background:none;border:1px solid var(--gold);color:var(--gold2);border-radius:8px;padding:6px 12px;font-size:1.1rem}
+.search{width:170px;background:#161616;border:1px solid var(--line);color:var(--txt);border-radius:20px;padding:8px 14px}
+@media(max-width:900px){#menuBtn{display:block}.nav{display:none;position:absolute;top:68px;left:0;right:0;background:#0a0a0a;flex-direction:column;padding:16px 18px;border-bottom:1px solid var(--line);margin:0}.nav.open{display:flex}.search{display:none}}
+/* hero */
+.hero{padding:70px 0 50px;background:radial-gradient(ellipse at 70% 30%,#2a2208 0,transparent 60%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.2em;font-size:.75rem;font-family:system-ui}
+.hero h1{font-size:clamp(2.3rem,7vw,4.2rem);line-height:1.1;margin:10px 0 16px;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);max-width:480px;margin-bottom:24px}
+.hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+.stage{border:1px solid var(--line);border-radius:22px;background:#111;padding:14px;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.note{font:.72rem system-ui;color:var(--mut);margin-top:8px;text-align:center}
+@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}}
+/* grids */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center;cursor:pointer;color:var(--txt);transition:.25s}
+.cat:hover{border-color:var(--gold);transform:translateY(-4px)}
+.cat h3{font-size:1rem;margin-top:6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{background:transparent;border:1px solid var(--line);color:var(--mut);border-radius:20px;padding:7px 14px;cursor:pointer;font-size:.85rem}
+.chip.on{background:var(--gold);color:#111;border-color:var(--gold);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.card .img{background:#0f0f0f;padding:10px;position:relative}
+.tag{position:absolute;top:10px;left:10px;font:.65rem system-ui;background:#000;border:1px solid var(--gold);color:var(--gold2);padding:2px 8px;border-radius:10px}
+.card .body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:1.05rem}
+.card p{font-size:.88rem;color:var(--mut);flex:1}
+.price{color:var(--gold2);font-weight:700;font-family:system-ui}
+.row{display:flex;gap:8px}.row .btn{flex:1;text-align:center;padding:10px 8px;font-size:.82rem}
+#empty{display:none;color:var(--mut);padding:30px 0}
+/* modal */
+dialog{background:#111;color:var(--txt);border:1px solid var(--gold);border-radius:20px;max-width:880px;width:94vw;padding:0;max-height:92vh;overflow:auto}
+dialog::backdrop{background:rgba(0,0,0,.8)}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px}
+@media(max-width:720px){.dgrid{grid-template-columns:1fr}}
+.thumbs{display:flex;gap:8px;margin-top:8px}
+.thumb{flex:1;border:1px dashed var(--line);border-radius:8px;font:.65rem system-ui;color:var(--mut);padding:10px 4px;text-align:center}
+table{width:100%;border-collapse:collapse;font:.88rem system-ui;margin:12px 0}
+td{border-bottom:1px solid var(--line);padding:7px 4px}td:first-child{color:var(--mut)}
+.close{float:right;margin:12px 12px 0 0;background:none;border:1px solid var(--gold);color:var(--gold2);border-radius:50%;width:36px;height:36px;font-size:1.1rem;cursor:pointer}
+/* video + why + contact */
+.video{aspect-ratio:16/9;border:2px dashed var(--gold);border-radius:18px;display:grid;place-items:center;text-align:center;color:var(--mut);background:#0f0f0f;padding:20px;font-family:system-ui}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.why div{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--card)}
+.why h3{color:var(--gold2);margin-bottom:6px;font-size:1.05rem}.why p{color:var(--mut);font-size:.9rem}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:720px){.contact{grid-template-columns:1fr}}
+.box{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--card);font-family:system-ui}
+.ph{color:#e8b4a0;font-style:italic}
+footer{border-top:1px solid var(--line);padding:34px 0;font-family:system-ui;color:var(--mut);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}
+footer nav{display:flex;gap:14px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap bar">
+  <a href="#home" class="brand" aria-label="Wavy Kart home"><span id="logoSlot"></span>Wavy Kart</a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="#home">Home</a><a href="#categories" data-cat="Mini Electric Cars">Ride-On Cars</a><a href="#products" data-cat="Ride-On Bikes">Bikes</a><a href="#products" data-cat="Mini SUVs & Jeeps">SUVs &amp; Jeeps</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+  <input class="search" id="search" type="search" placeholder="Search vehicles…" aria-label="Search products">
+  <button id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+</div>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="wrap">
+  <div>
+    <div class="eyebrow">Showroom · Jamnagar, Gujarat</div>
+    <h1>Little Riders, Big Dreams.</h1>
+    <p>Discover exciting ride-on cars, mini bikes and electric vehicles made for little adventurers.</p>
+    <div class="btns"><a class="btn" href="#products">Explore Vehicles</a><a class="btn ghost" href="#contact">Contact Us</a></div>
+  </div>
+  <div class="stage" id="heroArt" aria-hidden="true"></div>
+</div>
+</section>
+
+<section id="categories"><div class="wrap reveal">
+  <h2>Shop by Category</h2><p class="sub">Miniature ride-on vehicles for young children.</p>
+  <div class="cats" id="cats"></div>
+</div></section>
+
+<section id="products" style="background:#0d0d0d"><div class="wrap reveal">
+  <h2>Featured Vehicles</h2>
+  <p class="sub">Sample products shown for design only. Real models and prices will be added once confirmed by the showroom.</p>
+  <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+  <div class="grid" id="grid"></div>
+  <p id="empty">No vehicles match your search. Try another word or category.</p>
+</div></section>
+
+<section id="videos"><div class="wrap reveal">
+  <h2>Video Showcase</h2><p class="sub">Real product demonstrations will appear here.</p>
+  <div class="vids" id="vids"></div>
+</div></section>
+
+<section id="about" style="background:#0d0d0d"><div class="wrap reveal">
+  <h2>The Wavy Kart Experience</h2><p class="sub">Details below will be updated after the owner confirms them.</p>
+  <div class="why">
+    <div><h3>Visit the Showroom</h3><p>See the ride-on vehicles in person at our Jamnagar showroom.</p></div>
+    <div><h3>Made for Little Riders</h3><p>A range of ride-on cars, bikes, jeeps and scooters for young children.</p></div>
+    <div><h3>Ask Us Anything</h3><p>Message us on WhatsApp to ask about models, availability and prices.</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap reveal">
+  <h2>Contact Wavy Kart</h2><p class="sub">Jamnagar, Gujarat, India</p>
+  <div class="contact">
+    <div class="box"><h3>Get in touch</h3><br>
+      <p><strong>Phone:</strong> <span class="ph" id="phoneTxt"></span></p>
+      <p><strong>Address:</strong> <span class="ph">[Showroom address – to be confirmed by owner]</span></p><br>
+      <a class="btn wa" id="waMain" target="_blank" rel="noopener">WhatsApp Enquiry</a>
+    </div>
+    <div class="box"><h3>Visit us</h3><br><p>Map and opening hours will be added once the owner confirms the showroom details.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><div class="brand" style="margin-bottom:6px"><span id="logoSlot2"></span>Wavy Kart</div>Little Riders, Big Dreams.<br>Jamnagar, Gujarat, India</div>
+  <nav aria-label="Footer"><a href="#home">Home</a><a href="#categories">Categories</a><a href="#products">Vehicles</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <div><span class="ph">[Phone placeholder]</span><br><span class="ph">[Address placeholder]</span><br>© <span id="yr"></span> Wavy Kart</div>
+</div></footer>
+
+<dialog id="dlg" aria-label="Product details"></dialog>
+
+<script>
+"use strict";
+/* ===== CONFIG – edit these ===== */
+const WHATSAPP_NUMBER = "91XXXXXXXXXX";   // PLACEHOLDER: country code + number, digits only
+const PHONE_DISPLAY   = "[Phone number – to be confirmed by owner]";
+const LOGO_SRC        = "";               // e.g. "logo.png" – put the ORIGINAL logo file next to index.html
+
+/* ===== Data (sample items only – NOT real inventory) =====
+   price: null = "Price on request". specs: only add confirmed facts. */
+const CATEGORIES = ["Mini Electric Cars","Sports Cars for Kids","Mini SUVs & Jeeps","Ride-On Bikes","Mini Scooters","Other Ride-On Vehicles"];
+const ART = {"Mini Electric Cars":["car","#d4af37"],"Sports Cars for Kids":["sports","#c0392b"],"Mini SUVs & Jeeps":["jeep","#2e8b57"],"Ride-On Bikes":["bike","#3b82c4"],"Mini Scooters":["scooter","#9b59b6"],"Other Ride-On Vehicles":["car","#e67e22"]};
+const PRODUCTS = [
+ {id:1,name:"Sample Mini Electric Car",cat:"Mini Electric Cars",desc:"Sample listing for a battery-operated kids' ride-on car.",price:null,status:"Sample – availability to be confirmed",images:[],video:"",specs:{}},
+ {id:2,name:"Sample Kids Sports Car",cat:"Sports Cars for Kids",desc:"Sample listing for a miniature sports-style ride-on car.",price:null,status:"Sample – availability to be confirmed",images:[],video:"",specs:{}},
+ {id:3,name:"Sample Mini Jeep",cat:"Mini SUVs & Jeeps",desc:"Sample listing for a miniature ride-on jeep.",price:null,status:"Sample – availability to be confirmed",images:[],video:"",specs:{}},
+ {id:4,name:"Sample Mini SUV",cat:"Mini SUVs & Jeeps",desc:"Sample listing for a miniature ride-on SUV.",price:null,status:"Sample – availability to be confirmed",images:[],video:"",specs:{}},
+ {id:5,name:"Sample Kids Ride-On Bike",cat:"Ride-On Bikes",desc:"Sample listing for a children's ride-on motorbike.",price:null,status:"Sample – availability to be confirmed",images:[],video:"",specs:{}},
+ {id:6,name:"Sample Mini Scooter",cat:"Mini Scooters",desc:"Sample listing for a children's scooter.",price:null,status:"Sample – availability to be confirmed",images:[],video:"",specs:{}},
+ {id:7,name:"Sample Ride-On Vehicle",cat:"Other Ride-On Vehicles",desc:"Sample listing for another kind of ride-on vehicle.",price:null,status:"Sample – availability to be confirmed",images:[],video:"",specs:{}}
+];
+/* Optional specs keys shown only if present: age, battery, charging, dimensions, loadCapacity */
+const SPEC_LABELS = {age:"Recommended age",battery:"Battery",charging:"Charging",dimensions:"Dimensions",loadCapacity:"Load capacity"};
+/* Add real videos later: {title:"Model name", url:"https://youtube.com/watch?v=..."} */
+const VIDEOS = [];
+
+/* ===== Helpers ===== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const waLink = text => "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+const priceText = p => p == null ? "Price on request" : "₹" + Number(p).toLocaleString("en-IN");
+
+/* Illustrative placeholder art (simple vector shapes, NOT product photos) */
+function art(kind, color){
+  const w = '<circle cx="%x" cy="150" r="22" fill="#222" stroke="#d4af37" stroke-width="4"/>';
+  const wheel = x => w.replace("%x", x);
+  let body;
+  if(kind==="bike") body = '<path d="M90 150 L130 105 H170 L190 150 M130 105 L115 85 H140" stroke="'+color+'" stroke-width="9" fill="none" stroke-linecap="round"/><rect x="125" y="110" width="45" height="20" rx="8" fill="'+color+'"/>'+wheel(90)+wheel(200);
+  else if(kind==="scooter") body = '<path d="M80 150 H190 L200 70 M190 70 H215" stroke="'+color+'" stroke-width="9" fill="none" stroke-linecap="round"/><rect x="95" y="138" width="85" height="12" rx="5" fill="'+color+'"/>'+wheel(85)+wheel(200);
+  else if(kind==="jeep") body = '<rect x="50" y="85" width="200" height="55" rx="10" fill="'+color+'"/><rect x="85" y="55" width="105" height="35" rx="6" fill="none" stroke="'+color+'" stroke-width="6"/><rect x="95" y="62" width="40" height="24" fill="#1c1c1c"/>'+wheel(90)+wheel(215);
+  else if(kind==="sports") body = '<path d="M40 135 Q50 100 110 95 Q140 70 185 92 Q250 100 262 135 Z" fill="'+color+'"/><path d="M120 97 Q142 78 175 94 Z" fill="#1c1c1c"/>'+wheel(90)+wheel(215);
+  else body = '<rect x="45" y="95" width="215" height="42" rx="18" fill="'+color+'"/><path d="M95 98 Q110 65 150 65 H185 Q205 70 215 98 Z" fill="'+color+'"/><path d="M110 96 Q120 74 150 74 H160 V96 Z M168 74 H183 Q197 77 203 96 H168 Z" fill="#1c1c1c"/>'+wheel(90)+wheel(215);
+  return '<svg viewBox="0 0 300 190" role="img" aria-label="Illustration of a miniature ride-on '+kind+'"><ellipse cx="150" cy="176" rx="110" ry="8" fill="#000" opacity=".5"/>'+body+'</svg>';
+}
+const artFor = cat => art(...ART[cat]);
+
+/* ===== Logo (placeholder unless LOGO_SRC is set) ===== */
+function logoHTML(){
+  return LOGO_SRC ? '<img class="logo" src="'+esc(LOGO_SRC)+'" alt="Wavy Kart logo">'
+                  : '<span class="logo" title="Placeholder – add the original logo file">LOGO<br>HERE</span>';
+}
+$("logoSlot").outerHTML = logoHTML();
+$("logoSlot2").outerHTML = logoHTML();
+$("yr").textContent = new Date().getFullYear();
+$("phoneTxt").textContent = PHONE_DISPLAY;
+$("waMain").href = waLink("Hello Wavy Kart, I would like to enquire about your ride-on vehicles.");
+$("heroArt").innerHTML = artFor("Sports Cars for Kids") + '<div class="note">Illustration – real product photos coming soon</div>';
+
+/* ===== Categories + filters ===== */
+let activeCat = "All";
+$("cats").innerHTML = CATEGORIES.map(c => '<button class="cat" data-cat="'+esc(c)+'">'+artFor(c)+'<h3>'+esc(c)+'</h3></button>').join("");
+$("chips").innerHTML = ["All"].concat(CATEGORIES).map(c => '<button class="chip" data-cat="'+esc(c)+'">'+esc(c)+'</button>').join("");
+
+function render(){
+  const q = $("search").value.trim().toLowerCase();
+  document.querySelectorAll(".chip").forEach(b => b.classList.toggle("on", b.dataset.cat === activeCat));
+  const list = PRODUCTS.filter(p => (activeCat==="All" || p.cat===activeCat) && (!q || (p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(q)));
+  $("grid").innerHTML = list.map(p =>
+    '<article class="card"><div class="img"><span class="tag">SAMPLE</span>'+(p.images[0] ? '<img src="'+esc(p.images[0])+'" alt="'+esc(p.name)+'" loading="lazy" style="width:100%">' : artFor(p.cat))+'</div>'+
+    '<div class="body"><h3>'+esc(p.name)+'</h3><div class="price">'+priceText(p.price)+'</div><p>'+esc(p.desc)+'</p>'+
+    '<div class="row"><button class="btn ghost" data-view="'+p.id+'">View Details</button><a class="btn wa" target="_blank" rel="noopener" href="'+waLink("Hello Wavy Kart, I would like to enquire about: "+p.name)+'">WhatsApp</a></div></div></article>').join("");
+  $("empty").style.display = list.length ? "none" : "block";
+}
+function setCat(c, scroll){ activeCat = c; render(); if(scroll) $("products").scrollIntoView(); }
+
+document.addEventListener("click", e => {
+  const cat = e.target.closest("[data-cat]");
+  if(cat){ setCat(cat.dataset.cat, !cat.classList.contains("chip")); $("nav").classList.remove("open"); }
+  const v = e.target.closest("[data-view]");
+  if(v) openDetail(+v.dataset.view);
+  if(e.target.closest("#nav a")) $("nav").classList.remove("open");
+});
+$("search").addEventListener("input", () => { activeCat = "All"; render(); if($("search").value) $("products").scrollIntoView(); });
+$("menuBtn").addEventListener("click", () => { const o = $("nav").classList.toggle("open"); $("menuBtn").setAttribute("aria-expanded", o); });
+
+/* ===== Product details ===== */
+function openDetail(id){
+  const p = PRODUCTS.find(x => x.id === id); if(!p) return;
+  const imgs = p.images.length ? p.images : [null];
+  const rows = Object.keys(SPEC_LABELS).filter(k => p.specs[k]).map(k => '<tr><td>'+SPEC_LABELS[k]+'</td><td>'+esc(p.specs[k])+'</td></tr>').join("");
+  const vid = p.video ? '<p><a class="btn ghost" target="_blank" rel="noopener" href="'+esc(p.video)+'">Watch video</a></p>' : '<div class="thumb">Video placeholder – none added yet</div>';
+  $("dlg").innerHTML = '<button class="close" aria-label="Close" onclick="dlg.close()">✕</button><div class="dgrid"><div>'+
+    (imgs[0] ? '<img src="'+esc(imgs[0])+'" alt="'+esc(p.name)+'" style="width:100%;border-radius:12px">' : artFor(p.cat))+
+    '<div class="thumbs"><div class="thumb">Photo 2</div><div class="thumb">Photo 3</div><div class="thumb">Photo 4</div></div></div><div>'+
+    '<div class="eyebrow">'+esc(p.cat)+'</div><h2>'+esc(p.name)+'</h2><div class="price">'+priceText(p.price)+'</div>'+
+    '<p style="color:var(--mut);margin:10px 0">'+esc(p.desc)+'</p><table><tr><td>Availability</td><td>'+esc(p.status)+'</td></tr>'+rows+'</table>'+vid+
+    '<p class="note" style="text-align:left">Sample item for design preview. Age, battery, size and load details appear only once confirmed.</p><br>'+
+    '<a class="btn wa" target="_blank" rel="noopener" href="'+waLink("Hello Wavy Kart, I would like to enquire about: "+p.name)+'">WhatsApp Enquiry</a></div></div>';
+  $("dlg").showModal();
+}
+$("dlg").addEventListener("click", e => { if(e.target === $("dlg")) $("dlg").close(); });
+
+/* ===== Videos ===== */
+$("vids").innerHTML = VIDEOS.length
+  ? VIDEOS.map(v => '<a class="video" target="_blank" rel="noopener" href="'+esc(v.url)+'">▶ '+esc(v.title)+'</a>').join("")
+  : [1,2,3].map(n => '<div class="video"><div><div style="font-size:2rem">▶</div>Video placeholder '+n+'<br><small>Not a working video yet</small></div></div>').join("");
+
+/* ===== Scroll reveal ===== */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.1}) : null;
+document.querySelectorAll(".reveal").forEach(el => io ? io.observe(el) : el.classList.add("in"));
+
+render();
+</script>
+</body>
+</html>
